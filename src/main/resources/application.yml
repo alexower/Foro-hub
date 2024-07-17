@@ -2,7 +2,7 @@ spring:
   profile.active: dev
   datasource:
     url: jdbc:mysql://localhost/foro_hub2
-    username: root
+    username: ${DB_USER}
     password: ${DB_PASSWORD}
   jpa:
     show-sql: true
@@ -15,7 +15,7 @@ server:
     include-stacktrace: never
 api:
   security:
-    secret: ${JWT_SECRET:123456}
+    secret: ${JWT_SECRET:}
 
 
 

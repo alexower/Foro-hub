@@ -22,6 +22,15 @@ public class TopicoService {
         return null;
     }
 
+    public DatosTopicoLista actualizarTopico(DatosActualizarTopico data, Long id) {
+        Optional<Topico> topicEnt = topicoRepository.findById(id);
+        if (topicEnt.isPresent()) {
+            Topico topic = topicEnt.get();
+            topic.ActualizarData(data);
+            return new DatosTopicoLista(topic);
+        }
+        return null;
+    }
 
     public void borrarTopic(Long id) {
         Optional<Topico> topicEnt = topicoRepository.findById(id);

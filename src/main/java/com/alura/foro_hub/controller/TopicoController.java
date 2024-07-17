@@ -56,12 +56,12 @@ public class TopicoController {
         return ResponseEntity.ok(topicService.getTopicById(id));
     }
 
-//    @PutMapping("/{id}")
-//    @Transactional
-//    public ResponseEntity<DatosTopicoLista> putTopic(@RequestBody @Valid TopicUpdateDto data,
-//                                                 @PathVariable Long id) {
-//        return ResponseEntity.ok(topicService.updateTopic(data, id));
-//    }
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity<DatosTopicoLista> putTopic(@RequestBody @Valid DatosActualizarTopico data,
+                                                 @PathVariable Long id) {
+        return ResponseEntity.ok(topicService.actualizarTopico(data, id));
+    }
 
     @DeleteMapping("/{id}")
     @Transactional

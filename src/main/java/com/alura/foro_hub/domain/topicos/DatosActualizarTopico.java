@@ -13,4 +13,5 @@ public record DatosActualizarTopico(
         Curso curso
 
         ) {
+
 }

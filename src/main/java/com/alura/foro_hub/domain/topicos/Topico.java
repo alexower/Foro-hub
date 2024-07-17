@@ -61,4 +61,19 @@ public class Topico {
                 .collect(Collectors.toList());
     }
 
+    public void ActualizarData(DatosActualizarTopico data) {
+        if (data.titulo() != null) {
+            this.titulo = data.titulo();
+        }
+        if (data.mensaje() != null) {
+            this.mensaje = data.mensaje();
+        }
+        if (data.autor() != null) {
+            this.autor = autor.updateAuthor(data.autor());
+        }
+        if (data.curso() != null) {
+            this.curso = data.curso();
+        }
+    }
+
 }
