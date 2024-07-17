@@ -26,22 +26,23 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity.csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(auth -> auth
+                .authorizeRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                        .requestMatchers("/swagger-ui.html", "/v3/api-docs/**", "/swagger-ui/**").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(
-            AuthenticationConfiguration authenticationConfiguration) throws Exception {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
+            throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
+
         return new BCryptPasswordEncoder();
     }
+
 }

@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public record DatosAuteticacionUsuario(
         @NotBlank
-        Spring nombre,
+        String nombre,
         @NotBlank
         String clave
 ) {

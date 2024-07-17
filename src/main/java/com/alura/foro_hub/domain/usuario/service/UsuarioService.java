@@ -2,7 +2,7 @@ package com.alura.foro_hub.domain.usuario.service;
 
 import com.alura.foro_hub.domain.topicos.Topico;
 import com.alura.foro_hub.domain.topicos.TopicoRespository;
-import com.alura.foro_hub.domain.usuario.IUsuarioRepository;
+import com.alura.foro_hub.domain.usuario.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsuarioService {
     @Autowired
-    private IUsuarioRepository userRepository;
+    private UsuarioRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Autowired

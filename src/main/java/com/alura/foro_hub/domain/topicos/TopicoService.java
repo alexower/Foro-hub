@@ -16,7 +16,7 @@ public class TopicoService {
         if (topicEnt.isPresent()) {
             Topico topico = topicEnt.get();
             return new DatosTopicoLista(topico.getId(), topico.getTitulo(), topico.getMensaje(),
-                    topico.getFecha(), topico.getEstatus(), topico.getAutor().getNombre(),
+                    topico.getFecha(), topico.getEstatus(), topico.getAutor(),
                     topico.getCurso());
         }
         return null;

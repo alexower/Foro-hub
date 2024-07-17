@@ -1,6 +1,6 @@
 package com.alura.foro_hub.infra.security;
 
-import com.alura.foro_hub.domain.usuario.IUsuarioRepository;
+import com.alura.foro_hub.domain.usuario.UsuarioRepository;
 
 
 import jakarta.servlet.FilterChain;
@@ -20,21 +20,18 @@ public class SecurityFilter extends OncePerRequestFilter {
     @Autowired
     private TokenService tokenService;
     @Autowired
-    private IUsuarioRepository iUsuarioRepository;
+    private UsuarioRepository usuarioRepository;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request,
-                                    HttpServletResponse response,
-                                    FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
         var authToken = request.getHeader("Authorization");
-
         if (authToken != null) {
             var token = authToken.replace("Bearer ", "");
             var userName = tokenService.getSubject(token);
 
             if (userName != null) {
-                var user = iUsuarioRepository.findByName(userName);
+                var user = usuarioRepository.findByNombre(userName);
                 var authentication = new UsernamePasswordAuthenticationToken(user,
                         null, user.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(authentication);

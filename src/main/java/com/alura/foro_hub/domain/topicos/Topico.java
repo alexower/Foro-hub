@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Entity(name = "Topico")
+@Entity(name = "topico")
 @Table(name = "topicos")
 @Getter
 @Setter
@@ -34,7 +34,7 @@ public class Topico {
     private Usuario autor;
     @Enumerated(EnumType.STRING)
     private Curso curso;
-    @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Respuesta> responses = new ArrayList<>();
 
 
