@@ -1,4 +1,4 @@
-# Foro-hub
+# Foro-hub ![Static Badge](https://img.shields.io/badge/Version-1.1-green)
 
 Foro-hub es una aplicación de foros desarrollada en Java utilizando el framework Spring Boot. Permite a los usuarios crear, gestionar y participar en discusiones sobre diversos temas.
 
